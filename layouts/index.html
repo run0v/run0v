@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
-  {{ partial "header.html" . }}
-</head>
-<body>
+{{ define "main" }}
   <div class="container">
     {{ partial "nav.html" . }}
 
@@ -11,7 +6,7 @@
     <div class="section-list">
       <h2>Разделы</h2>
       <ul>
-        {{ range .Site.Sections }}
+        {{ range where (where .Site.Sections "Title" "!=" "run0v blog") "Title" "!=" "Posts" }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>
@@ -35,7 +30,5 @@
     </div>
 
     {{ partial "pagination.html" . }}
-    {{ partial "footer.html" . }}
   </div>
-</body>
-</html>
+{{ end }}
