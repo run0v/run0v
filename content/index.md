@@ -16,5 +16,3 @@ draft: false
 # Команда запуска локального сервера
 hugo server -D
 ```
-
-[Ссылка на репозиторий](https://github.com/username/my-hugo-site)
