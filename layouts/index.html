@@ -2,7 +2,6 @@
 <div class="homepage-layout">
     <aside class="sidebar">
         <nav class="sidebar-menu">
-            <h3>Меню</h3>
             <ul>
                 {{ range .Site.Menus.main_sidebar }}
                 <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
@@ -14,9 +13,7 @@
         <section class="posts">
             {{ range where .Paginator.Pages ".Params.showonmain" "!=" false }}
             <article class="post-title-only">
-                <a href="{{ .RelPermalink }}">
-                    <h2 class="post-title">{{ .Title }}</h2>
-                </a>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </article>
             {{ end }}
         </section>
