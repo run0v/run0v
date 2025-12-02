@@ -21,10 +21,14 @@
                     
                 </ul>
             </nav>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
-        </header>
-        <main class="main-content">
-            
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </header>
+                <main class="main-content">
+                    
 <section class="posts">
     
 </section>
@@ -32,19 +36,24 @@
 
 
 
-        </main>
-        <footer class="footer">
-            <p>&copy; 2025 run0v blog. All rights reserved.</p>
-        </footer>
-    </div>
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const nav = document.querySelector('.nav ul');
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', () => {
-                nav.classList.toggle('active');
-            });
-        }
-    </script>
-</body>
-</html>
+                </main>
+                <footer class="footer">
+                    <p>&copy; 2025 run0v blog. All rights reserved.</p>
+                </footer>
+                </div>
+                <script>
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const nav = document.querySelector('.nav ul');
+                    if (menuToggle && nav) {
+                        menuToggle.addEventListener('click', () => {
+                            nav.classList.toggle('active');
+                            menuToggle.classList.toggle('active');
+                            if (menuToggle.classList.contains('active')) {
+                                menuToggle.setAttribute('aria-label', 'Close menu');
+                            } else {
+                                menuToggle.setAttribute('aria-label', 'Open menu');
+                            }
+                        });
+                    }
+                </script>
+            </body></html>

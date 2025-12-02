@@ -228,21 +228,29 @@ p {
     }
     
     .nav ul {
-        display: none;
+        display: flex; /* Changed from none to flex */
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
         background: var(--bg-color);
-        border: 1px solid var(--border-color);
+        /* border: 1px solid var(--border-color); */ /* Removed border */
         border-radius: 4px;
         padding: 1rem;
         z-index: 10;
+        
+        /* Animation properties */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
     }
 
     .nav ul.active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .nav ul li {
@@ -250,7 +258,41 @@ p {
     }
 
     .menu-toggle {
+        display: block; /* Make it visible on mobile */
+        width: 2rem;
+        height: 2rem;
+        position: relative;
+        z-index: 20;
+    }
+
+    .menu-toggle span {
         display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--text-color);
+        border-radius: 3px;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        position: absolute;
+        left: 0;
+    }
+
+    /* Hamburger State */
+    .menu-toggle span:nth-child(1) {
+        transform: translateY(-8px);
+    }
+    .menu-toggle span:nth-child(3) {
+        transform: translateY(8px);
+    }
+
+    /* Active (Cross) State */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        transform: rotate(-45deg);
+    }
+    .menu-toggle.active span:nth-child(3) {
+        opacity: 0;
     }
 
     h1 { font-size: 1.8em; }
