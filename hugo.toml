@@ -12,13 +12,8 @@ enableRobotsTXT = true
 
 [params]
     mainSections = ["test"]
-
-[[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
     
 [[menu.main]]
-    name = "Test"
-    url = "/test/"
-    weight = 2
+    name = "Записки"
+    url = "/notes/"
+    weight = 1
