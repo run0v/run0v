@@ -15,30 +15,19 @@ enableGitInfo = true
     mainSections = ["notes"]
     
 [[menu.main]]
-    
     name = "Записки"
-    
     url = "/notes/"
-    
     weight = 1
     
 
     
 [[menu.main_sidebar]]
-    
-    name = "Обо мне"
-    
-    url = "/about/"
-    
+    name = "PostgreSql"
+    url = "/postgresql/"
     weight = 1
-    
 
-    
 [[menu.main_sidebar]]
-    
-    name = "Проекты"
-    
-    url = "/projects/"
-    
+    name = "C# ^ .Net"
+    url = "/csharp/"
     weight = 2
     
