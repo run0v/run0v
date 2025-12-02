@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="{{ .Site.BaseURL }}" class="logo">{{ .Site.Title }}</a>
+            <nav class="nav">
+                <ul>
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL | relURL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+            </nav>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
+        </header>
+        <main class="main-content">
+            {{ block "main" . }}{{ end }}
+        </main>
+        <footer class="footer">
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.querySelector('.nav ul');
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
