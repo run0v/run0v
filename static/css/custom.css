@@ -124,9 +124,7 @@ p {
 }
 
 .post-title-only {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.5rem;
 }
 
 .post-title-only:last-of-type {
