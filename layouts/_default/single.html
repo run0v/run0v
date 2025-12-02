@@ -3,7 +3,19 @@
     <header class="post-header">
         <h1 class="post-title">{{ .Title }}</h1>
         <div class="post-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ $monthIndex := sub .Date.Month 1 }}
+            {{ $russianMonth := index .Site.Data.months.ru $monthIndex }}
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                Опубликовано: {{ .Date.Format "02" }} {{ $russianMonth }} {{ .Date.Format "2006" }} года, {{ .Date.Format "15:04" }}
+            </time>
+            {{ if not (.Date.Equal .Lastmod) }}
+                {{ $lastmodMonthIndex := sub .Lastmod.Month 1 }}
+                {{ $lastmodRussianMonth := index .Site.Data.months.ru $lastmodMonthIndex }}
+                <br>
+                <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+                    Изменено: {{ .Lastmod.Format "02" }} {{ $lastmodRussianMonth }} {{ .Lastmod.Format "2006" }} года, {{ .Lastmod.Format "15:04" }}
+                </time>
+            {{ end }}
             {{ if .Params.tags }}
             <span class="tags">
                 &nbsp;•&nbsp;

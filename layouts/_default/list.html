@@ -1,8 +1,25 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <ul>
-        {{ range .Pages }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    </ul>
+<section class="posts">
+    {{ range .Paginator.Pages }}
+    <article class="post-preview">
+        <a href="{{ .RelPermalink }}">
+            <h2 class="post-title">{{ .Title }}</h2>
+        </a>
+        <div class="post-meta">
+            {{ $monthIndex := sub .Date.Month 1 }}
+            {{ $russianMonth := index .Site.Data.months.ru $monthIndex }}
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "02" }} {{ $russianMonth }} {{ .Date.Format "2006" }} года, {{ .Date.Format "15:04" }}
+            </time>
+        </div>
+        <div class="post-summary">
+            {{ .Summary }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="read-more">Read more →</a>
+    </article>
+    {{ end }}
+</section>
+
+{{ template "_internal/pagination.html" . }}
+
 {{ end }}

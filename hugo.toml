@@ -9,11 +9,36 @@ enableEmptyBundles = true
 timeZone = 'Europe/Moscow'
 disableHugoGeneratorInject = true
 enableRobotsTXT = true
+enableGitInfo = true
 
 [params]
-    mainSections = ["test"]
+    mainSections = ["notes"]
     
 [[menu.main]]
+    
     name = "Записки"
+    
     url = "/notes/"
+    
     weight = 1
+    
+
+    
+[[menu.main_sidebar]]
+    
+    name = "Обо мне"
+    
+    url = "/about/"
+    
+    weight = 1
+    
+
+    
+[[menu.main_sidebar]]
+    
+    name = "Проекты"
+    
+    url = "/projects/"
+    
+    weight = 2
+    

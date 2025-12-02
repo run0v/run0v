@@ -123,6 +123,18 @@ p {
     margin-bottom: 0;
 }
 
+.post-title-only {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-title-only:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
 .post-preview .post-title {
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -297,4 +309,38 @@ p {
 
     h1 { font-size: 1.8em; }
     h2 { font-size: 1.5em; }
+
+    .homepage-layout {
+        flex-direction: column;
+    }
+}
+
+/* --- Homepage Layout --- */
+.homepage-layout {
+    display: flex;
+    gap: 2rem;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.sidebar-menu h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.main-feed {
+    flex: 2;
 }
